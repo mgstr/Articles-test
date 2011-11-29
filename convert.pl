@@ -10,7 +10,7 @@ $_ = <D>;
 my $id = 0;
 my $results = '';
 
-s/\b(the)\b/article($1)/gei;
+s/\b(the|a|an)\b/article($1)/gei;
 s![\r\n]+$!!;
 s![\r\n]+!</p><p>!g;
 
@@ -31,7 +31,7 @@ print <<EOH;
 	background-color: red;
 }
 .ok {
-	background-color: green;
+	background-color: LightGreen;
 }
 </style>
 <script type="text/javascript">
@@ -114,7 +114,7 @@ function check()
 	}
 	else
 	{
-		results.innerHTML = errors + ' found';
+		results.innerHTML = errors + ' errors';
 		results.className = 'error';
 	}
 }
