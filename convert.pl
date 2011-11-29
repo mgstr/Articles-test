@@ -9,8 +9,14 @@ $_ = <D>;
 
 my $id = 0;
 
-s/(the)/article($1)/gei;
-print $_;
+s/\b(the)\b/article($1)/gei;
+s![\r\n]+$!!;
+s![\r\n]+!</p><p>!g;
+
+print <<EOH;
+<p>Found $id articles</p><p>
+$_</p>
+EOH
 
 sub article
 {
