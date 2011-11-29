@@ -20,6 +20,10 @@ function onLoad()
 }
 function onKeyPress(e)
 {
+	var article = document.getElementById(current);
+	if (!article)
+		return;
+
 	var evt = e || window.event;
 	var text = null;
 	if ((evt.charCode == 84) || (evt.charCode == 116))
@@ -38,14 +42,20 @@ function onKeyPress(e)
 	{
 		text = '&nbsp;';
 	}
+	else if (evt.keyCode == 8)
+	{
+		if (current > 1)
+		{
+			article.className = 'empty';
+			article = document.getElementById(--current);
+			article.className = 'current';
+		}
+		return;
+	}
 
 	if (!text)
 		return;
 	
-	var article = document.getElementById(current);
-	if (!article)
-		return;
-
 	article.innerHTML = text;
 	if (current < max)
 	{
