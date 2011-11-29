@@ -37,9 +37,37 @@ function onLoad()
 function onKeyPress(e)
 {
 	var evt = e || window.event;
+	var text = null;
 	if ((evt.charCode == 84) || (evt.charCode == 116))
 	{
-		document.getElementById(current).innerHTML='the';
+		text = 'the';
+	}
+	else if ((evt.charCode == 65) || (evt.charCode == 97))
+	{
+		text = 'a';
+	}
+	else if ((evt.charCode == 78) || (evt.charCode == 110))
+	{
+		text = 'an';
+	}
+	else if (evt.charCode == 32)
+	{
+		text = '&nbsp;';
+	}
+
+	if (!text)
+		return;
+	
+	var article = document.getElementById(current);
+	if (!article)
+		return;
+
+	article.innerHTML = text;
+	if (current < max)
+	{
+		article.className = 'empty';
+		article = document.getElementById(++current);
+		article.className = 'current';
 	}
 }
 </script>
