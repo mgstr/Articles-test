@@ -27,16 +27,21 @@ print <<EOH;
 	background-color: yellow;
 }
 </style>
-<script>
+<script type="text/javascript">
 var max = $id;
-var current = 0;
+var current = 1;
 function onLoad()
 {
 	document.getElementById('1').className = 'current';
 }
+function onKeyUp()
+{
+	var unicode=e.keyCode? e.keyCode : e.charCode
+	alert(unicode);
+}
 </script>
 </head>
-<body onload='onLoad()'>
+<body onload='onLoad()' onkeyup='onKeyUp(event);return false;'>
 <p class='header'>Found $id articles</p><p>
 $_</p>
 </body>
