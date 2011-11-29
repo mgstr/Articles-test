@@ -14,8 +14,19 @@ s![\r\n]+$!!;
 s![\r\n]+!</p><p>!g;
 
 print <<EOH;
-<p>Found $id articles</p><p>
+<html>
+<head>
+<style type="text/css">
+.header {
+	background-color:grey;
+}
+</style>
+</head>
+<body>
+<p class='header'>Found $id articles</p><p>
 $_</p>
+</body>
+</html>
 EOH
 
 sub article
