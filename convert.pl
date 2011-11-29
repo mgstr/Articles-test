@@ -153,6 +153,13 @@ function check(action)
 		results.className = 'ok';
 	}
 }
+function setFocus(article)
+{
+	var old = document.getElementById(current);
+	old.className = 'empty';
+	article.className = 'current';
+	current = article.id;
+}
 </script>
 </head>
 <body onload='onLoad()' onkeydown='return false;' onkeypress='onKeyPress(event);return false;'>
@@ -170,5 +177,5 @@ sub article
 	$results .= ',' unless $results eq '';
 	$results .= "'$al'";
 	
-	return "<span class='empty' id='$id'>&nbsp;</span>";
+	return "<span class='empty' id='$id' onclick='setFocus(this)'>&nbsp;</span>";
 }
