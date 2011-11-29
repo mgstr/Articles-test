@@ -65,12 +65,27 @@ function onKeyPress(e)
 	{
 		text = '&nbsp;';
 	}
-	else if (evt.keyCode == 8)
+	else if ((evt.charCode == 72) || (evt.charCode == 104))
+	{
+		check(document.getElementById('action'));
+		return;
+	}
+	else if ((evt.keyCode == 8) || (evt.keyCode == 37))
 	{
 		if (current > 1)
 		{
 			article.className = 'empty';
 			article = document.getElementById(--current);
+			article.className = 'current';
+		}
+		return;
+	}
+	else if (evt.keyCode == 39)
+	{
+		if (current < max)
+		{
+			article.className = 'empty';
+			article = document.getElementById(++current);
 			article.className = 'current';
 		}
 		return;
@@ -141,7 +156,7 @@ function check(action)
 </script>
 </head>
 <body onload='onLoad()' onkeydown='return false;' onkeypress='onKeyPress(event);return false;'>
-<p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this);return false;'/> <span id='result'></span></p><p>
+<p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this);' acceskey='h'/> <span id='result'></span></p><p>
 $_</p>
 </body>
 </html>
