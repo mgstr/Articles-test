@@ -141,7 +141,7 @@ function check(action)
 </script>
 </head>
 <body onload='onLoad()' onkeydown='return false;' onkeypress='onKeyPress(event);return false;'>
-<p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this)'/> <span id='result'></span></p><p>
+<p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this);return false;'/> <span id='result'></span></p><p>
 $_</p>
 </body>
 </html>
