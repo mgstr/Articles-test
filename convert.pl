@@ -87,41 +87,61 @@ function onKeyPress(e)
 		article.className = 'current';
 	}
 }
-function check()
+function check(action)
 {
-	var results = ['dummy', $results];
-	var errors = 0;
-	
-	for (var i = 1; i < max; ++i)
+	if (action.value == 'check')
 	{
-		var article = document.getElementById(i);
-		if (article.innerHTML == results[i])
+		var results = ['dummy', $results];
+		var errors = 0;
+		
+		for (var i = 1; i <= max; ++i)
 		{
-			article.className = 'ok';
+			var article = document.getElementById(i);
+			if (article.innerHTML == results[i])
+			{
+				article.className = 'ok';
+			}
+			else
+			{
+				article.className = 'error';
+				++errors;
+			}
+		}
+		
+		var results = document.getElementById('result');
+		if (!errors)
+		{
+			results.innerHTML = 'OK';
+			results.className = 'ok';
 		}
 		else
 		{
-			article.className = 'error';
-			++errors;
+			results.innerHTML = errors + ' errors';
+			results.className = 'error';
 		}
-	}
-	
-	var results = document.getElementById('result');
-	if (!errors)
-	{
-		results.innerHTML = 'OK';
-		results.className = 'ok';
+		
+		action.value = 'again';
 	}
 	else
 	{
-		results.innerHTML = errors + ' errors';
-		results.className = 'error';
+		for (var i = max; i > 0; --i)
+		{
+			var article = document.getElementById(i);
+			article.innerHTML = '&nbsp;';
+			article.className = 'empty';
+		}
+		article.className = 'current';
+		
+		action.value = 'check';
+		var results = document.getElementById('result');
+		results.innerHTML = '';
+		results.className = 'ok';
 	}
 }
 </script>
 </head>
 <body onload='onLoad()' onkeydown='return false;' onkeypress='onKeyPress(event);return false;'>
-<p class='header'>$id articles <input type='button' value='check' onclick='check()'/> <span id='result'></span></p><p>
+<p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this)'/> <span id='result'></span></p><p>
 $_</p>
 </body>
 </html>
