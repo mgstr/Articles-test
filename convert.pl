@@ -34,14 +34,17 @@ function onLoad()
 {
 	document.getElementById('1').className = 'current';
 }
-function onKeyUp()
+function onKeyDown(e)
 {
-	var unicode=e.keyCode? e.keyCode : e.charCode
-	alert(unicode);
+	alert('onKeyDown'+e);
+}
+function onKeyPress(e)
+{
+	alert('onKeyPress'+e);
 }
 </script>
 </head>
-<body onload='onLoad()' onkeyup='onKeyUp(event);return false;'>
+<body onload='onLoad()' onkeydown='onKeyDown(event);return false;' onkeypress='onKeyPress(event);return false;'>
 <p class='header'>Found $id articles</p><p>
 $_</p>
 </body>
