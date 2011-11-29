@@ -34,17 +34,17 @@ function onLoad()
 {
 	document.getElementById('1').className = 'current';
 }
-function onKeyDown(e)
-{
-	alert('onKeyDown'+e);
-}
 function onKeyPress(e)
 {
-	alert('onKeyPress'+e);
+	var evt = e || window.event;
+	if ((evt.charCode == 84) || (evt.charCode == 116))
+	{
+		document.getElementById(current).innerHTML='the';
+	}
 }
 </script>
 </head>
-<body onload='onLoad()' onkeydown='onKeyDown(event);return false;' onkeypress='onKeyPress(event);return false;'>
+<body onload='onLoad()' onkeydown='return false;' onkeypress='onKeyPress(event);return false;'>
 <p class='header'>Found $id articles</p><p>
 $_</p>
 </body>
