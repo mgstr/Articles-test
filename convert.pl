@@ -44,6 +44,37 @@ function onLoad()
 {
 	document.getElementById('1').className = 'current';
 }
+function onKeyDown(e)
+{
+	var article = document.getElementById(current);
+	if (!article)
+		return;
+
+	var evt = e || window.event;
+	if (evt.keyCode == 39)
+	{
+		if (current < max)
+		{
+			article.className = currentClass;
+			article = document.getElementById(++current);
+			currentClass = article.className;
+			article.className = 'current';
+		}
+		return;
+	}
+	else if ((evt.keyCode == 37) || (evt.keyCode == 8))
+	{
+		if (current > 1)
+		{
+			article.className = currentClass;
+			article = document.getElementById(--current);
+			currentClass = article.className;
+			article.className = 'current';
+		}
+		return;
+	}
+}
+
 function onKeyPress(e)
 {
 	var article = document.getElementById(current);
@@ -169,7 +200,7 @@ function setFocus(article)
 }
 </script>
 </head>
-<body onload='onLoad()' onkeypress='onKeyPress(event);return false;'>
+<body onload='onLoad()' onkeydown='onKeyDown(event)' onkeypress='onKeyPress(event);return false;'>
 <p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this);' acceskey='h'/> <span id='result'></span></p><p>
 $_</p>
 </body>
