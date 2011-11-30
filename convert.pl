@@ -1,7 +1,8 @@
 use strict;
 use warnings;
 
-my $fileName = 'data.txt';
+my $fileName = shift;
+my $max = shift;
 
 open(D, $fileName) or die;
 undef $/;
@@ -162,7 +163,7 @@ function setFocus(article)
 }
 </script>
 </head>
-<body onload='onLoad()' onkeydown='return false;' onkeypress='onKeyPress(event);return false;'>
+<body onload='onLoad()' onkeypress='onKeyPress(event);return false;'>
 <p class='header'>$id articles <input id='action' type='button' value='check' onclick='check(this);' acceskey='h'/> <span id='result'></span></p><p>
 $_</p>
 </body>
@@ -172,6 +173,9 @@ EOH
 sub article
 {
 	my $a = shift;
+	
+	return $a if $id >= $max;
+	
 	my $al = "\L$a";
 	++$id;
 	$results .= ',' unless $results eq '';
