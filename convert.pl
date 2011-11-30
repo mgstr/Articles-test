@@ -130,14 +130,14 @@ function check(action)
 		{
 			results.innerHTML = 'OK';
 			results.className = 'ok';
+		
+			action.value = 'again';
 		}
 		else
 		{
 			results.innerHTML = errors + ' errors';
 			results.className = 'error';
 		}
-		
-		action.value = 'again';
 	}
 	else
 	{
