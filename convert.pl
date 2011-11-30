@@ -39,6 +39,7 @@ print <<EOH;
 <script type="text/javascript">
 var max = $id;
 var current = 1;
+var currentClass = 'empty';
 function onLoad()
 {
 	document.getElementById('1').className = 'current';
@@ -76,8 +77,9 @@ function onKeyPress(e)
 	{
 		if (current > 1)
 		{
-			article.className = 'empty';
+			article.className = currentClass;
 			article = document.getElementById(--current);
+			currentClass = article.className;
 			article.className = 'current';
 		}
 		return;
@@ -86,8 +88,9 @@ function onKeyPress(e)
 	{
 		if (current < max)
 		{
-			article.className = 'empty';
+			article.className = currentClass;
 			article = document.getElementById(++current);
+			currentClass = article.className;
 			article.className = 'current';
 		}
 		return;
@@ -96,11 +99,13 @@ function onKeyPress(e)
 	if (!text)
 		return;
 	
+	var same = article.innerHTML === text;
 	article.innerHTML = text;
 	if (current < max)
 	{
-		article.className = 'empty';
+		article.className = same ? currentClass : 'empty';
 		article = document.getElementById(++current);
+		currentClass = article.className;
 		article.className = 'current';
 	}
 }
