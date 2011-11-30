@@ -3,6 +3,7 @@ use warnings;
 
 my $fileName = shift;
 my $max = shift;
+$max = 999 if !defined $max;
 
 open(D, $fileName) or die;
 undef $/;
