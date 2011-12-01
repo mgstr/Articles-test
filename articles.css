@@ -1,0 +1,18 @@
+.header {
+	background-color: grey;
+}
+.empty {
+	background-color: LightGray;
+}
+.current {
+	background-color: yellow;
+	width:30px;
+	display: inline-block;
+	text-align:center;
+}
+.error {
+	background-color: red;
+}
+.ok {
+	background-color: LightGreen;
+}

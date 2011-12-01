@@ -28,6 +28,7 @@ print <<EOH;
 }
 .current {
 	background-color: yellow;
+	width: 40px;
 }
 .error {
 	background-color: red;
@@ -83,23 +84,24 @@ function onKeyPress(e)
 
 	var evt = e || window.event;
 	var text = null;
-	if ((evt.charCode == 84) || (evt.charCode == 116))
+	var ch = evt.charCode || evt.keyCode;
+	if ((ch == 84) || (ch == 116))
 	{
 		text = 'the';
 	}
-	else if ((evt.charCode == 65) || (evt.charCode == 97))
+	else if ((ch == 65) || (ch == 97))
 	{
 		text = 'a';
 	}
-	else if ((evt.charCode == 78) || (evt.charCode == 110))
+	else if ((ch == 78) || (ch == 110))
 	{
 		text = 'an';
 	}
-	else if (evt.charCode == 32)
+	else if (ch == 32)
 	{
 		text = '&nbsp;';
 	}
-	else if ((evt.charCode == 72) || (evt.charCode == 104))
+	else if ((ch == 72) || (ch == 104))
 	{
 		check(document.getElementById('action'));
 		return;
