@@ -54,7 +54,7 @@ function action()
 	while (t != prev)
 	{
 		prev = t;
-		t = t.replace(/the/, ++i);
+		t = t.replace(/\b(the|a|an)\b/, i++);
 	}
 	root.innerHTML = t;
 }
