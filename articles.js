@@ -48,5 +48,13 @@ function action()
 			root.removeChild(root.firstChild);
 		} 
 	}
-	root.innerHTML = text;
+	var t = text.replace(/[\r\n]+/g, "<p>");
+	var prev = '';
+	var i = 1;
+	while (t != prev)
+	{
+		prev = t;
+		t = t.replace(/the/, ++i);
+	}
+	root.innerHTML = t;
 }
