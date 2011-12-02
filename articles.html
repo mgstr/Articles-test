@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Test articles usage</title>
+<link href="articles.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="articles.js">
+</script>
+</head>
+
+<body>
+<span id="edit">
+<p id="editControlPanel"><input id="startTest" type="button" value="start test" onclick="startTest()"></input></p>
+<textarea rows="20" cols="80" id="text">
+</textarea>
+</span>
+
+<span id="test" style="display:none">
+<p class="testControlPanel"> <input id='action' type='button' value='check' onclick='check(this);' acceskey='h'/> <span id='result'></span></p>
+</span>
+
+<p id="statistics">statistics: the - <span id="the"></span> a/an - <span id="a"></span></p>
+</body>
+</html>
