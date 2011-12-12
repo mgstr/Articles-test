@@ -6,7 +6,7 @@
 </script>
 </head>
 
-<body id="body" onload="onLoad()">
+<body id="body" onload="onLoad()" onkeydown="onKeyDown(event);return true;" onkeypress="onKeyPress(event)">
 <span id="edit">
 <p id="editControlPanel" class="header"><input id="startTest" type="button" value="start test" onclick="startTest()"></input></p>
 <textarea rows="20" id="text" style="width:100%" >
