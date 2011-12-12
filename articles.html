@@ -6,17 +6,18 @@
 </script>
 </head>
 
-<body>
+<body id="body" onload="onLoad()">
 <span id="edit">
-<p id="editControlPanel"><input id="startTest" type="button" value="start test" onclick="startTest()"></input></p>
-<textarea rows="20" cols="80" id="text">
+<p id="editControlPanel" class="header"><input id="startTest" type="button" value="start test" onclick="startTest()"></input></p>
+<textarea rows="20" id="text" style="width:100%" >
 </textarea>
 </span>
 
 <span id="test" style="display:none">
-<p class="testControlPanel"> <input id='action' type='button' value='check' onclick='check(this);' acceskey='h'/> <span id='result'></span></p>
+<p id="testControlPanel" class="header"> <input id='action' type='button' value='check' onclick='check(this);' acceskey='h'/> <span id='result'></span></p>
+<span id="testText"></span>
 </span>
 
-<p id="statistics">statistics: the - <span id="the"></span> a/an - <span id="a"></span></p>
+<p class="statistics">statistics:<span class="statTitle">the - </span><span id="the"></span><span class="statTitle">a/an - </span><span id="a"></span></p>
 </body>
 </html>

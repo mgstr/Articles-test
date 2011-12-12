@@ -16,3 +16,10 @@
 .ok {
 	background-color: LightGreen;
 }
+.statTitle {
+	margin-left: 15px;
+	margin-right: 0px;
+}
+.statistics {
+	background-color: Silver;
+}
