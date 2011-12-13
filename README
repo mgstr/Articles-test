@@ -1,1 +1,7 @@
-Web page to test English articles usage.
+This utility DO not required access to the internet for its work.
+ 
+When you open HTML file you see a big text area control where you can enter text from scratch or past some text from another source where articles are presumably used correctly (BBC news site is a good starting point). At the bottom of the page you see the field where you can see articles usage statistics.
+After you happy with a number of articles in the text press the “Start test” button at the left upper corner. All articles in the text will be replaced with "___" strings and the current "cursor" location will be highlighted by yellow color. Now you task is to put articles back to the text.
+Press "t" to enter "the", "n" to enter "an" and "a" to enter "a". When you ready to check the results press the "Check" button or the "c" key on the keyboard. The wrong articles usage will be highlighted by red color – you can click on them and change the articles using the keyboard shortcuts mentioned above.
+ 
+To work with another text reload page.
